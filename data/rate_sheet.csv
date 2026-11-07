@@ -1,0 +1,6 @@
+hotel_id,name,city,room_type,sleeps,price_per_night,currency,wheelchair_accessible,quiet_zone,adults_only
+ubud_hideaway,Ubud Hideaway,Bali,"Villa, sleeps 2",2,320,USD,false,true,true
+seminyak_beach,Seminyak Beach Hotel,Bali,"Deluxe, sleeps 2",2,180,USD,false,false,false
+sanur_garden,Sanur Garden Inn,Bali,"Family room, sleeps 4",4,140,USD,true,false,false
+shinjuku_central,Shinjuku Central,Tokyo,"Family room, sleeps 4",4,290,USD,false,false,false
+gion_ryokan,Gion Ryokan,Kyoto,"Japanese room, sleeps 4",4,410,USD,false,false,false

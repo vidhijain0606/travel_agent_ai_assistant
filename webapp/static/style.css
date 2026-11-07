@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --ink-navy: #16233b;
+  --navy-deep: #0f1a2c;
+  --paper-beige: #efe7d8;
+  --sand: #e3d9c4;
+  --brass: #b08d57;
+  --stamp-oxblood: #7a3b2e;
+  --line: rgba(22, 35, 59, 0.14);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper-beige);
+  color: var(--ink-navy);
+  font-family: 'Public Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 600; margin: 0; }
+
+.header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1rem 1.75rem;
+  background: var(--navy-deep);
+  color: var(--paper-beige);
+}
+.header__mark {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-size: 1.05rem;
+}
+.header__label {
+  color: rgba(239, 231, 216, 0.72);
+  font-size: 0.9rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: calc(100vh - 56px);
+}
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .rail { order: 2; }
+}
+
+.rail {
+  background: var(--ink-navy);
+  color: var(--paper-beige);
+  padding: 1.5rem 1.25rem;
+}
+.rail__section { margin-bottom: 2rem; }
+.rail__heading {
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  color: rgba(239, 231, 216, 0.65);
+  margin-bottom: 0.75rem;
+}
+
+.stages { list-style: none; margin: 0; padding: 0; }
+.stage {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0;
+  color: rgba(239, 231, 216, 0.45);
+  font-size: 0.92rem;
+}
+.stage__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(239, 231, 216, 0.45);
+  flex-shrink: 0;
+}
+.stage.is-active { color: var(--paper-beige); }
+.stage.is-active .stage__dot { background: var(--brass); border-color: var(--brass); }
+.stage.is-done { color: rgba(239, 231, 216, 0.85); }
+.stage.is-done .stage__dot { background: rgba(239, 231, 216, 0.6); border-color: rgba(239, 231, 216, 0.6); }
+
+.rail__toggle {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--paper-beige);
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0;
+  cursor: pointer;
+}
+#rate-sheet-count { color: rgba(239, 231, 216, 0.55); font-weight: 400; }
+.rail__collapsible { margin-top: 0.75rem; }
+
+.rate-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+.rate-table td {
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(239, 231, 216, 0.14);
+  vertical-align: top;
+}
+.rate-table .rt-name { font-weight: 500; }
+.rate-table .rt-meta { color: rgba(239, 231, 216, 0.6); display: block; font-size: 0.72rem; }
+.rate-table .rt-price {
+  font-family: 'IBM Plex Mono', monospace;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.paper {
+  padding: 2rem 2.5rem 4rem;
+  max-width: 760px;
+}
+
+/* Spacing is a rhythm, not a constant: tight between blocks in the same phase
+   (what-we-understood: inquiry/brief/questions), wide before the payoff (itinerary),
+   tight again after it (narration is commentary on what was just shown). */
+.block { margin-bottom: 1.25rem; }
+#questions-block { margin-bottom: 4rem; }
+#narration-block { margin-top: -0.5rem; }
+
+.block__heading {
+  font-size: 1.15rem;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.sample-picker { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+.sample-chip {
+  font-size: 0.78rem;
+  font-family: 'Public Sans', sans-serif;
+  background: var(--sand);
+  border: 1px solid var(--line);
+  color: var(--ink-navy);
+  padding: 0.35rem 0.7rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.sample-chip:hover { border-color: var(--brass); }
+
+.inquiry-input {
+  width: 100%;
+  background: #fbf8f1;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 0.75rem;
+  font-family: 'Public Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--ink-navy);
+  resize: vertical;
+}
+.inquiry-input:focus-visible,
+.btn:focus-visible,
+.sample-chip:focus-visible,
+.rail__toggle:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+}
+
+.btn {
+  margin-top: 0.75rem;
+  background: var(--ink-navy);
+  color: var(--paper-beige);
+  border: none;
+  border-radius: 3px;
+  padding: 0.6rem 1.1rem;
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.btn:hover { background: var(--navy-deep); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.status { font-size: 0.85rem; color: var(--stamp-oxblood); min-height: 1.2em; margin: 0.6rem 0 0; }
+.status.is-pending { color: var(--ink-navy); }
+
+.brief-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.35rem 1.25rem;
+  background: var(--sand);
+  padding: 1rem 1.25rem;
+  border-radius: 3px;
+}
+.brief-grid dt { color: rgba(22, 35, 59, 0.6); font-size: 0.82rem; }
+.brief-grid dd { margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; }
+
+.brief-notes {
+  margin: 0.6rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.82rem;
+  color: var(--stamp-oxblood);
+}
+.brief-notes li { margin-bottom: 0.2rem; }
+
+.questions { margin: 0; padding-left: 1.1rem; }
+.questions li { margin-bottom: 0.4rem; }
+.questions.is-empty { list-style: none; padding: 0; color: rgba(22, 35, 59, 0.55); font-style: italic; }
+
+/* The itinerary is the payoff of the whole page -- it gets its own surface and a
+   brass rule, instead of sitting on the identical plain background as every other
+   section. */
+#itinerary-block {
+  background: var(--sand);
+  border-top: 2px solid var(--brass);
+  padding: 1.5rem 1.5rem 0.5rem;
+  border-radius: 3px;
+}
+
+.leg {
+  border-top: 1px solid var(--line);
+  padding: 0.9rem 0;
+}
+.leg__title { font-weight: 600; margin-bottom: 0.3rem; }
+.leg__reason { color: var(--stamp-oxblood); font-size: 0.88rem; }
+.leg__row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  font-size: 0.9rem;
+}
+.leg__amount { font-family: 'IBM Plex Mono', monospace; white-space: nowrap; }
+.leg__flag { color: var(--stamp-oxblood); font-size: 0.82rem; margin-top: 0.2rem; }
+
+.ledger {
+  border-top: 1px solid var(--ink-navy);
+  margin-top: 0.5rem;
+  padding: 0.6rem 0 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+.ledger .amount { font-family: 'IBM Plex Mono', monospace; }
+
+.narration { max-width: 65ch; }

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Oltaflock Desk</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header__mark">OLTAFLOCK</div>
+    <div class="header__label">Desk for today's inquiry</div>
+  </header>
+
+  <div class="layout">
+    <aside class="rail">
+      <section class="rail__section">
+        <h2 class="rail__heading">Stage</h2>
+        <ol class="stages" id="stages">
+          <li class="stage" data-stage="parsed"><span class="stage__dot"></span>Parsed</li>
+          <li class="stage" data-stage="clarify"><span class="stage__dot"></span>Clarify</li>
+          <li class="stage" data-stage="priced"><span class="stage__dot"></span>Priced</li>
+        </ol>
+      </section>
+
+      <section class="rail__section">
+        <button class="rail__toggle" id="rate-sheet-toggle" aria-expanded="false">
+          Rate sheet <span id="rate-sheet-count"></span>
+        </button>
+        <div class="rail__collapsible" id="rate-sheet-panel" hidden>
+          <table class="rate-table" id="rate-table"></table>
+        </div>
+      </section>
+    </aside>
+
+    <main class="paper">
+      <section class="block">
+        <h2 class="block__heading">Client inquiry</h2>
+        <div class="sample-picker" id="sample-picker"></div>
+        <textarea id="inquiry-text" class="inquiry-input" rows="4"
+          placeholder="Paste or write the client's message here..."></textarea>
+        <button class="btn" id="run-btn">Generate proposal</button>
+        <p class="status" id="status"></p>
+      </section>
+
+      <section class="block" id="brief-block" hidden>
+        <h2 class="block__heading">Trip brief</h2>
+        <div class="brief-grid" id="brief-grid"></div>
+        <ul class="brief-notes" id="brief-notes" hidden></ul>
+      </section>
+
+      <section class="block" id="questions-block" hidden>
+        <h2 class="block__heading">Questions for the client</h2>
+        <ul class="questions" id="questions-list"></ul>
+      </section>
+
+      <section class="block" id="itinerary-block" hidden>
+        <h2 class="block__heading">Itinerary</h2>
+        <div id="itinerary-legs"></div>
+        <div class="ledger" id="ledger"></div>
+      </section>
+
+      <section class="block" id="narration-block" hidden>
+        <h2 class="block__heading">Advisor summary</h2>
+        <p class="narration" id="narration-text"></p>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
